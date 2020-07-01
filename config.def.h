@@ -66,6 +66,7 @@ static const char *dmenucmd[]  = { "dmenu_run", NULL };
 static const char *editcmd[]   = { "st", "-e", "zsh", "-ic", "$EDITOR", NULL };
 static const char *filecmd[]   = { "st", "-e", "zsh", "-ic", "lf", NULL };
 static const char *htopcmd[]   = { "st", "-e", "zsh", "-ic", "htop", NULL };
+static const char *lockcmd[]    = { "i3lock", "-e", "-f", "-c", "000000", NULL };
 static const char *mntcmd[]    = { "dmenumount", NULL };
 static const char *netwcmd[]   = { "networkmanager_dmenu", NULL };
 static const char *passcmd[]   = { "passmenu", NULL };
@@ -80,6 +81,7 @@ static const char *killxcmd[]  = { "killall", "xinit", NULL };
 
 static Key keys[] = {
 	/* modifier           key              function        argument */
+	{ MODKEY,             XK_F2,           spawn,          {.v = lockcmd } },
 	{ MODKEY,             XK_F9,           spawn,          {.v = mntcmd } },
 	{ MODKEY,             XK_F10,          spawn,          {.v = umntcmd } },
 	TAGKEYS(              XK_1,            0)
