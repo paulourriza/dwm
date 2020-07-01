@@ -70,6 +70,7 @@ static const char *htopcmd[]   = { "st", "-e", "zsh", "-ic", "htop", NULL };
 static const char *lockcmd[]    = { "lock_suspend.sh", NULL };
 static const char *mailcmd[]   = { "st", "-e", "zsh", "-ic", "mutt", NULL };
 static const char *mntcmd[]    = { "dmenumount", NULL };
+static const char *newscmd[]   = { "st", "-e", "zsh", "-ic", "newsboat", NULL };
 static const char *netwcmd[]   = { "networkmanager_dmenu", NULL };
 static const char *passcmd[]   = { "passmenu", NULL };
 static const char *termcmd[]   = { "st", NULL };
@@ -129,6 +130,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,   XK_z,            spawn,          {.v = killxcmd } },
 	{ MODKEY,             XK_v,            spawn,          {.v = editcmd } },
 	{ MODKEY,             XK_b,            togglebar,      {0} },
+	{ MODKEY,             XK_n,            spawn,          {.v = newscmd } },
 	{ MODKEY,             XK_m,            setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,             XK_comma,        focusmon,       {.i = -1 } },
 	{ MODKEY|ShiftMask,   XK_comma,        tagmon,         {.i = -1 } },
