@@ -23,6 +23,9 @@ static const char *colors[][3]      = {
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
+/* scratch pad */
+static const char scratchpadname[] = "scratchpad";
+
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -34,7 +37,6 @@ static const Rule rules[] = {
 	{ "QjackCtl", NULL,     NULL,           0,         0,          1,          0,          -1,        -1 },
 	{ "St",      NULL,      NULL,           0,         0,          0,          1,          -1,        -1 },
 	{ NULL,      NULL,      "Event Tester", 0,         0,          1,          0,           1,        -1 }, /* xev */
-	{ "St",      "scratch", NULL,           0,         1,          1,          1,           1,        -1 },
 };
 
 /* layout(s) */
@@ -82,12 +84,14 @@ static const char *volupcmd[]  = { "lmc", "up", "5", NULL };
 static const char *voluupcmd[] = { "lmc", "up", "15", NULL };
 static const char *webcmd[]    = { "qutebrowser", NULL };
 static const char *killxcmd[]  = { "killall", "xinit", NULL };
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x25", NULL };
 
 static Key keys[] = {
 	/* modifier           key              function        argument */
 	{ MODKEY,             XK_F2,           spawn,          {.v = lockcmd } },
 	{ MODKEY,             XK_F9,           spawn,          {.v = mntcmd } },
 	{ MODKEY,             XK_F10,          spawn,          {.v = umntcmd } },
+	{ MODKEY,             XK_grave,        togglescratch,  {.v = scratchpadcmd } },
 	TAGKEYS(              XK_1,            0)
 	TAGKEYS(              XK_2,            1)
 	TAGKEYS(              XK_3,            2)
