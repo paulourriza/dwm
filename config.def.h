@@ -34,7 +34,7 @@ static const Rule rules[] = {
 	/* class     instance   title           tags mask  iscentered  isfloating  isterminal  noswallow  monitor */
 	{ "Gimp",    NULL,      NULL,           0,         0,          1,          0,           0,        -1 },
 	{ "Firefox", NULL,      NULL,           1 << 8,    0,          0,          0,          -1,        -1 },
-	{ "QjackCtl", NULL,     NULL,           0,         0,          1,          0,          -1,        -1 },
+	{ "QjackCtl", NULL,     NULL,           0,         0,          0,          0,          -1,        -1 },
 	{ "St",      NULL,      NULL,           0,         0,          0,          1,          -1,        -1 },
 	{ NULL,      NULL,      "Event Tester", 0,         0,          1,          0,           1,        -1 }, /* xev */
 };
@@ -128,7 +128,9 @@ static Key keys[] = {
 	{ MODKEY,             XK_g,            spawn,          {.v = gcashcmd } },
 	{ MODKEY,             XK_h,            setmfact,       {.f = -0.05} },
 	{ MODKEY,             XK_j,            focusstack,     {.i = +1 } },
+	{ MODKEY|ShiftMask,   XK_j,            pushdown,       {0} },
 	{ MODKEY,             XK_k,            focusstack,     {.i = -1 } },
+	{ MODKEY|ShiftMask,   XK_k,            pushup,         {0} },
 	{ MODKEY,             XK_l,            setmfact,       {.f = +0.05} },
 	{ MODKEY,             XK_Return,       spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,   XK_Return,       setlayout,      {0} },
