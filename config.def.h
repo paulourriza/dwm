@@ -7,8 +7,8 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Terminus (ttf):size=12" };
-static const char dmenufont[]       = "Terminus (ttf):size=12";
+static const char *fonts[]          = { "Terminus (ttf):size=10" };
+static const char dmenufont[]       = "Terminus (ttf):size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -85,12 +85,16 @@ static const char *voluupcmd[] = { "lmc", "up", "15", NULL };
 static const char *webcmd[]    = { "qutebrowser", NULL };
 static const char *killxcmd[]  = { "killall", "xinit", NULL };
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x25", NULL };
+static const char *dispcmd[]    = { "displayselect", NULL };
+static const char *suspendcmd[]    = { "suspendnow", NULL };
 
 static Key keys[] = {
 	/* modifier           key              function        argument */
 	{ MODKEY,             XK_F2,           spawn,          {.v = lockcmd } },
+	{ MODKEY,             XK_F4,           spawn,          {.v = suspendcmd } },
 	{ MODKEY,             XK_F9,           spawn,          {.v = mntcmd } },
 	{ MODKEY,             XK_F10,          spawn,          {.v = umntcmd } },
+	{ MODKEY,             XK_F11,          spawn,          {.v = dispcmd } },
 	{ MODKEY,             XK_grave,        togglescratch,  {.v = scratchpadcmd } },
 	TAGKEYS(              XK_1,            0)
 	TAGKEYS(              XK_2,            1)
